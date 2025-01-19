@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">android-assignment-two</string>
+    <string name="app_name">Students App</string>
+    <string name="student_picture">Student Picture</string>
+    <string name="add_new_student">Add New Student</string>
 </resources>
