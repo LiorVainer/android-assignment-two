@@ -2,4 +2,6 @@
     <string name="app_name">Students App</string>
     <string name="student_picture">Student Picture</string>
     <string name="add_new_student">Add New Student</string>
+    <string name="edit_student">Edit Student</string>
+    <string name="add_student">Add Student</string>
 </resources>

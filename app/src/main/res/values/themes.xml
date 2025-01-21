@@ -6,5 +6,7 @@
         <item name="colorSurface">@color/surface</item>
         <item name="colorError">@color/error</item>
         <item name="android:textColor">@color/onBackground</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 </resources>

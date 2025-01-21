@@ -3,13 +3,13 @@ package com.example.android_assignment_two.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android_assignment_two.OnItemClickListener
 import com.example.android_assignment_two.R
 import com.example.android_assignment_two.model.Student
 
-class StudentsRecyclerAdapter(private val students: MutableList<Student>?): RecyclerView.Adapter<StudentViewHolder>() {
-
-    var listener: OnItemClickListener? = null
+class StudentsRecyclerAdapter(
+    private val students: MutableList<Student>?,
+    private val onStudentClick: (Student) -> Unit
+) : RecyclerView.Adapter<StudentViewHolder>() {
 
     override fun getItemCount(): Int = students?.size ?: 0
 
@@ -19,13 +19,15 @@ class StudentsRecyclerAdapter(private val students: MutableList<Student>?): Recy
             parent,
             false
         )
-        return StudentViewHolder(itemView, listener)
+        return StudentViewHolder(itemView) { student ->
+            onStudentClick(student)
+        }
     }
 
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
-        holder.bind(
-            student = students?.get(position),
-            position = position
-        )
+        students?.get(position)?.let { student ->
+            holder.bind(student) // No position parameter needed
+        }
     }
+
 }

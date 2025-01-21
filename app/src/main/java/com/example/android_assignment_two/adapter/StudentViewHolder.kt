@@ -1,52 +1,39 @@
 package com.example.android_assignment_two.adapter
 
-import android.util.Log
 import android.view.View
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android_assignment_two.OnItemClickListener
 import com.example.android_assignment_two.R
 import com.example.android_assignment_two.model.Student
 
 class StudentViewHolder(
     itemView: View,
-    listener: OnItemClickListener?
-): RecyclerView.ViewHolder(itemView) {
+    private val onStudentClick: (Student) -> Unit
+) : RecyclerView.ViewHolder(itemView) {
 
-    private var nameTextView: TextView? = null
-    private var idTextView: TextView? = null
-    private var studentCheckBox: CheckBox? = null
+    private val nameTextView: TextView = itemView.findViewById(R.id.student_row_name_text_view)
+    private val idTextView: TextView = itemView.findViewById(R.id.student_row_id_text_view)
+    private val studentCheckBox: CheckBox = itemView.findViewById(R.id.student_row_check_box)
+
     private var student: Student? = null
 
     init {
-        nameTextView = itemView.findViewById(R.id.student_row_name_text_view)
-        idTextView = itemView.findViewById(R.id.student_row_id_text_view)
-        studentCheckBox = itemView.findViewById(R.id.student_row_check_box)
-
-        studentCheckBox?.apply {
-            setOnClickListener {
-                (tag as? Int)?.let { tag ->
-                    student?.isChecked = (it as? CheckBox)?.isChecked ?: false
-                }
+        studentCheckBox.setOnClickListener {
+            student?.let {
+                it.isChecked = studentCheckBox.isChecked
             }
         }
 
         itemView.setOnClickListener {
-            Log.d("TAG", "On click listener on position $adapterPosition")
-//                listener?.onItemClick(adapterPosition)
-            listener?.onItemClick(student)
+            student?.let { onStudentClick(it) }
         }
     }
 
-    fun bind(student: Student?, position: Int) {
+    fun bind(student: Student) {
         this.student = student
-        nameTextView?.text = student?.name
-        idTextView?.text = student?.id
-
-        studentCheckBox?.apply {
-            isChecked = student?.isChecked ?: false
-            tag = position
-        }
+        nameTextView.text = student.name
+        idTextView.text = student.id
+        studentCheckBox.isChecked = student.isChecked
     }
 }
