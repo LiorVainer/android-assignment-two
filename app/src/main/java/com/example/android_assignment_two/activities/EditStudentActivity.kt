@@ -36,8 +36,9 @@ class EditStudentActivity : AppCompatActivity() {
         saveButton.setOnClickListener {
             val newName = nameText.text.toString()
             val newId = idText.text.toString()
+            val existingStudent = students.find { it.id == newId };
 
-            if (newName.isNotEmpty() && newId.isNotEmpty()) {
+            if (newName.isNotEmpty() && newId.isNotEmpty() && existingStudent == null) {
                 student?.name = newName
                 student?.id = newId
 

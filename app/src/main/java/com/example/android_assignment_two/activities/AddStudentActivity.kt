@@ -34,8 +34,9 @@ class AddStudentActivity : AppCompatActivity() {
         saveButton.setOnClickListener {
             val newName = nameEditText.text.toString()
             val newId = idEditText.text.toString()
+            val existingStudent = students.find { it.id == newId };
 
-            if (newName.isNotEmpty() && newId.isNotEmpty()) {
+            if (newName.isNotEmpty() && newId.isNotEmpty() && existingStudent == null) {
                 val newStudent = Student(nameEditText.text.toString(), idEditText.text.toString(),"", false)
                 students.add(newStudent);
                 val intent = Intent(this, MainActivity::class.java)
