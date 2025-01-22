@@ -30,8 +30,6 @@ class AddStudentActivity : AppCompatActivity() {
         val nameEditText: EditText = findViewById(R.id.add_student_activity_name_edit_text);
         val idEditText: EditText = findViewById(R.id.add_student_activity_id_edit_text);
 
-        val savedMessageTextView: TextView = findViewById(R.id.add_student_activity_save_message_text_view);
-
         cancelButton.setOnClickListener {
             finish();
         }
@@ -39,7 +37,7 @@ class AddStudentActivity : AppCompatActivity() {
         val students = Model.shared.students;
 
         saveButton.setOnClickListener {
-            val newStudent = Student(idEditText.text.toString(), nameEditText.text.toString(),"", false)
+            val newStudent = Student(nameEditText.text.toString(), idEditText.text.toString(),"", false)
             students.add(newStudent);
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

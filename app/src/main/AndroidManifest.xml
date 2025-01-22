@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Androidassignmenttwo"
         tools:targetApi="31">
         <activity
+            android:name=".activities.EditStudentActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.AddStudentActivity"
             android:exported="false" />
         <activity

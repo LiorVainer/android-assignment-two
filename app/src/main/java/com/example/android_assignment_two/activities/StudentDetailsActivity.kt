@@ -35,11 +35,10 @@ class StudentDetailsActivity : AppCompatActivity() {
             statusText.text = if (it.isChecked) "Checked: true" else "Checked: false"
         }
 
-        // TODO: Implement edit functionality
         editButton.setOnClickListener {
-            // val intent = Intent(this, EditStudentActivity::class.java)
-            // intent.putExtra("STUDENT_ID", studentId)
-            // startActivity(intent)
+             val intent = Intent(this, EditStudentActivity::class.java)
+             intent.putExtra("STUDENT_ID", studentId)
+             startActivity(intent)
         }
 
         // Enable back button in toolbar
