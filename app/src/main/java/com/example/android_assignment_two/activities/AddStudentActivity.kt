@@ -32,11 +32,16 @@ class AddStudentActivity : AppCompatActivity() {
         val students = Model.shared.students;
 
         saveButton.setOnClickListener {
-            val newStudent = Student(nameEditText.text.toString(), idEditText.text.toString(),"", false)
-            students.add(newStudent);
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            val newName = nameEditText.text.toString()
+            val newId = idEditText.text.toString()
+
+            if (newName.isNotEmpty() && newId.isNotEmpty()) {
+                val newStudent = Student(nameEditText.text.toString(), idEditText.text.toString(),"", false)
+                students.add(newStudent);
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
     }
 }
