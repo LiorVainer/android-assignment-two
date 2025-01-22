@@ -1,6 +1,5 @@
 package com.example.android_assignment_two.activities
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
@@ -9,19 +8,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android_assignment_two.R
-import com.example.android_assignment_two.model.Student
 import com.example.android_assignment_two.model.Model
+import com.example.android_assignment_two.model.Student
 
 class StudentDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_details)
 
-        // Get the student ID passed via intent
         val studentId = intent.getStringExtra("STUDENT_ID")
         val student: Student? = Model.shared.students.find { it.id == studentId }
 
-        // Find views
         val nameText: TextView = findViewById(R.id.student_details_activity_text_name)
         val idText: TextView = findViewById(R.id.student_details_activity_id_text)
         val picture: ImageView = findViewById(R.id.student_details_activity_picture)
@@ -36,9 +33,9 @@ class StudentDetailsActivity : AppCompatActivity() {
         }
 
         editButton.setOnClickListener {
-             val intent = Intent(this, EditStudentActivity::class.java)
-             intent.putExtra("STUDENT_ID", studentId)
-             startActivity(intent)
+            val intent = Intent(this, EditStudentActivity::class.java)
+            intent.putExtra("STUDENT_ID", studentId)
+            startActivity(intent)
         }
 
         // Enable back button in toolbar

@@ -7,11 +7,10 @@
     android:background="@color/surface"
     android:fitsSystemWindows="true">
 
-    <!-- CardView for student details -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_margin="16dp"
         app:cardElevation="6dp"
         app:cardCornerRadius="12dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -44,8 +43,7 @@
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:layout_marginBottom="8dp"
-                />
+                android:layout_marginBottom="8dp" />
 
             <TextView
                 android:id="@+id/student_details_activity_id_text"
@@ -54,8 +52,7 @@
                 android:layout_gravity="center_horizontal"
                 android:textSize="18sp"
                 android:textColor="@color/gray"
-                android:layout_marginBottom="8dp"
-                />
+                android:layout_marginBottom="8dp" />
 
             <TextView
                 android:id="@+id/student_details_activity_status_text"
@@ -64,8 +61,7 @@
                 android:layout_gravity="center_horizontal"
                 android:textSize="16sp"
                 android:textColor="@color/black"
-                android:layout_marginBottom="16dp"
-                />
+                android:layout_marginBottom="16dp" />
 
             <Button
                 android:id="@+id/student_details_activity_button_edit"
