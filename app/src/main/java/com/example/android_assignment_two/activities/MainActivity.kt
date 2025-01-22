@@ -31,10 +31,9 @@ class MainActivity : AppCompatActivity() {
         studentsRecyclerView.layoutManager = LinearLayoutManager(this)
         studentsRecyclerView.adapter = studentsAdapter
 
-        // TODO: Implement add student functionality
         addStudentButton.setOnClickListener {
-            // val intent = Intent(this, AddStudentActivity::class.java)
-            // startActivity(intent)
+             val intent = Intent(this, AddStudentActivity::class.java)
+             startActivity(intent)
         }
     }
 
